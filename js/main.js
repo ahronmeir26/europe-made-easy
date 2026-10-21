@@ -3,14 +3,24 @@
 const FORM_ENDPOINT = "https://formsubmit.co/ajax/info@EuropeMadeEasy.org";
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-// Mobile navigation
-const toggle = document.querySelector(".nav-toggle");
-const menu = document.querySelector(".nav-menu");
-if (toggle && menu) {
-  toggle.addEventListener("click", () => {
-    const open = menu.classList.toggle("is-open");
-    toggle.setAttribute("aria-expanded", String(open));
-  });
+// Header: transparent over the hero photo, solid after scrolling
+const bar = document.querySelector(".bar");
+const setSolid = () => bar.classList.toggle("solid", window.scrollY > 40);
+setSolid();
+window.addEventListener("scroll", setSolid, { passive: true });
+
+// Mobile menu
+const burger = document.querySelector(".burger");
+const nav = document.querySelector(".nav");
+if (burger && nav) {
+  const setMenu = (open) => {
+    nav.classList.toggle("open", open);
+    bar.classList.toggle("menu", open);
+    burger.setAttribute("aria-expanded", String(open));
+    document.body.style.overflow = open ? "hidden" : "";
+  };
+  burger.addEventListener("click", () => setMenu(!nav.classList.contains("open")));
+  nav.querySelectorAll("a").forEach((a) => a.addEventListener("click", () => setMenu(false)));
 }
 
 // Footer year
@@ -18,43 +28,50 @@ document.querySelectorAll("[data-year]").forEach((el) => {
   el.textContent = new Date().getFullYear();
 });
 
-// Scroll reveal (also triggers the to-do list strikethroughs)
-const revealTargets = document.querySelectorAll("[data-reveal], .todo");
-if ("IntersectionObserver" in window && !reduceMotion) {
-  const io = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (!entry.isIntersecting) return;
-        entry.target.classList.add("is-visible");
-        io.unobserve(entry.target);
-      });
-    },
-    { threshold: 0.18 }
-  );
-  revealTargets.forEach((el) => io.observe(el));
-} else {
-  revealTargets.forEach((el) => el.classList.add("is-visible"));
-}
+// Home hero: rotate city photos, tabs pick a city
+const hero = document.querySelector(".hero");
+if (hero) {
+  const slides = [...hero.querySelectorAll(".hero-media img")];
+  const tabs = [...hero.querySelectorAll(".hero-tab")];
+  let current = 0;
+  let timer;
 
-// Departure board split-flap effect
-const flaps = document.querySelectorAll("[data-flap]");
-if (flaps.length && !reduceMotion) {
-  const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-  flaps.forEach((el, i) => {
-    const target = el.textContent;
-    let frame = 0;
-    const settle = 14 + i * 5;
-    const timer = setInterval(() => {
-      frame++;
-      el.textContent = [...target]
-        .map((c, j) => (c === " " || frame > settle + j * 2 ? c : chars[Math.floor(Math.random() * chars.length)]))
-        .join("");
-      if (frame > settle + target.length * 2) {
-        el.textContent = target;
-        clearInterval(timer);
-      }
-    }, 45);
-  });
+  const show = (i) => {
+    current = (i + slides.length) % slides.length;
+    const img = slides[current];
+    if (img.dataset.src) {
+      img.src = img.dataset.src;
+      img.removeAttribute("data-src");
+    }
+    slides.forEach((s, j) => s.classList.toggle("show", j === current));
+    tabs.forEach((t, j) => {
+      t.setAttribute("aria-selected", String(j === current));
+      // restart the progress bar animation
+      t.style.animation = "none";
+      void t.offsetWidth;
+      t.style.animation = "";
+    });
+    // warm up the next photo
+    const next = slides[(current + 1) % slides.length];
+    if (next.dataset.src) {
+      next.src = next.dataset.src;
+      next.removeAttribute("data-src");
+    }
+  };
+  const start = () => {
+    clearInterval(timer);
+    if (!reduceMotion) timer = setInterval(() => show(current + 1), 6000);
+  };
+
+  tabs.forEach((t, i) =>
+    t.addEventListener("click", () => {
+      show(i);
+      start();
+    })
+  );
+  if (reduceMotion) hero.classList.add("paused");
+  show(0);
+  start();
 }
 
 // Preselect destination on the contact form (contact.html?city=rome)
@@ -63,6 +80,16 @@ if (destination) {
   const city = new URLSearchParams(location.search).get("city");
   const match = city && [...destination.options].find((o) => o.value.toLowerCase() === city.toLowerCase());
   if (match) destination.value = match.value;
+}
+
+// Review dialog
+const sheet = document.querySelector("#reviewSheet");
+if (sheet) {
+  document.querySelectorAll("[data-open-review]").forEach((b) => b.addEventListener("click", () => sheet.showModal()));
+  sheet.querySelector(".x").addEventListener("click", () => sheet.close());
+  sheet.addEventListener("click", (e) => {
+    if (e.target === sheet) sheet.close();
+  });
 }
 
 // Forms
@@ -81,6 +108,7 @@ document.querySelectorAll("form[data-ajax]").forEach((form) => {
     const label = button.innerHTML;
     button.textContent = "Sending…";
     status.className = "form-status";
+    status.textContent = "";
 
     try {
       const res = await fetch(FORM_ENDPOINT, {
@@ -104,7 +132,7 @@ document.querySelectorAll("form[data-ajax]").forEach((form) => {
   });
 });
 
-// Approved reviews (edit data/reviews.json to publish a review)
+// Published reviews (edit data/reviews.json to publish a review)
 const reviewList = document.querySelector("#review-list");
 if (reviewList) {
   const escape = (s) => String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
@@ -117,13 +145,13 @@ if (reviewList) {
         .map((r) => {
           const rating = Math.max(1, Math.min(5, Number(r.rating) || 5));
           return `<article class="review">
-            <div class="stamp" aria-label="${rating} out of 5 stars">${"★".repeat(rating)}${"☆".repeat(5 - rating)}</div>
-            <blockquote>“${escape(r.review)}”</blockquote>
-            <cite><b>${escape(r.name)}</b>${r.trip ? ` · ${escape(r.trip)}` : ""}</cite>
+            <span class="stars" aria-label="${rating} out of 5 stars">${"★".repeat(rating)}<span style="color:var(--line)">${"★".repeat(5 - rating)}</span></span>
+            <p>${escape(r.review)}</p>
+            <footer><strong>${escape(r.name)}</strong>${r.trip ? `<span>${escape(r.trip)}</span>` : ""}</footer>
           </article>`;
         })
         .join("");
-      reviewList.classList.add("review-wall");
+      reviewList.className = "review-grid";
     })
     .catch(() => {});
 }

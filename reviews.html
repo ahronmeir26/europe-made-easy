@@ -2,124 +2,100 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Reviews | Europe Made Easy</title>
   <meta name="description" content="Read what our customers say about their Europe Made Easy trips, and share your own experience.">
   <meta property="og:title" content="Reviews | Europe Made Easy">
   <meta property="og:description" content="Read what our customers say about their Europe Made Easy trips, and share your own experience.">
-  <meta property="og:image" content="images/hero-paris.jpg">
-  <meta name="theme-color" content="#f4ecdf">
+  <meta property="og:image" content="images/venice.jpg">
+  <meta name="theme-color" content="#14233b">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400;1,9..144,600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Gloock&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
-  <script>document.documentElement.classList.add("js")</script>
+  <script src="js/main.js" defer></script>
 </head>
 <body>
-  <header class="site-header">
-    <div class="container nav">
-      <a class="logo" href="index.html" aria-label="Europe Made Easy — home"><span class="logo-mark" aria-hidden="true">E</span><span class="logo-text">Europe <em>Made Easy</em><small>Kosher-friendly city tours</small></span></a>
-      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-menu">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h10"/></svg>
-      </button>
-      <nav class="nav-menu" id="nav-menu" aria-label="Main">
-        <ul class="nav-links">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About Us</a></li>
-          <li><a href="cities.html">Cities</a></li>
-          <li><a href="reviews.html" aria-current="page">Reviews</a></li>
-          <li><a href="contact.html">Contact Us</a></li>
-        </ul>
-        <a class="btn btn--terra nav-cta" href="contact.html">Plan Your Trip <span class="arrow" aria-hidden="true">→</span></a>
-      </nav>
-    </div>
+  <header class="bar">
+    <a class="brand" href="index.html" aria-label="Europe Made Easy, home"><svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="18.5" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M9 27c3-5 6-12 11-12s8 7 11 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M14 27h12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="20" cy="10.5" r="2" fill="currentColor"/></svg><span>Europe Made Easy</span></a>
+    <nav class="nav" aria-label="Main">
+      <a href="index.html">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="cities.html">Cities</a>
+      <a href="reviews.html" aria-current="page">Reviews</a>
+      <a href="contact.html">Contact Us</a>
+    </nav>
+    <a class="btn btn-gold bar-cta" href="contact.html">Plan your trip</a>
+    <button class="burger" aria-label="Open menu" aria-expanded="false"><span></span><span></span></button>
   </header>
 
   <main>
-    <section class="page-head">
-      <div class="container">
-        <div class="crumb mono"><span>No. 04 — Reviews</span><span>Europe Made Easy</span></div>
-        <h1>What our customers <em>say.</em></h1>
-        <p class="lead">Postcards from travelers we've had the pleasure of hosting.</p>
+    <section class="page-hero" style="background-image:url('images/london-2.jpg')">
+      <div class="wrap">
+        <p class="kicker">Reviews</p>
+        <h1>What our customers say</h1>
+        <p>Experiences from travelers we've had the pleasure of hosting.</p>
       </div>
     </section>
-    <div class="container"><div class="page-banner"><img src="images/london-2.jpg" alt="The River Thames and Tower Bridge in London"></div></div>
 
     <section class="section">
-      <div class="container">
+      <div class="wrap">
+        <div class="section-head section-head-row">
+          <div>
+            <h2>Reviews</h2>
+            <p>Traveled with us? We'd love to hear about your trip.</p>
+          </div>
+          <button class="btn btn-ink" type="button" data-open-review>Write a review</button>
+        </div>
         <div id="review-list">
-          <div class="blank-card">
-            <div class="left"><p>Greetings from Europe! Customer postcards will appear here soon.</p></div>
-            <div class="right">
-              <div class="stamp-box">YOUR<br>REVIEW<br>HERE</div>
-              <div class="lines"><span></span><span></span><span></span></div>
-            </div>
+          <div class="empty">
+            <h3>Be the first to share your trip</h3>
+            <p>Traveled with Europe Made Easy? Tell others what it was like.</p>
+            <button class="btn btn-gold" type="button" data-open-review>Write a review</button>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section" style="padding-top:20px">
-      <div class="container" style="max-width:940px">
-        <div style="text-align:center;margin-bottom:36px">
-          <span class="kicker">Traveled with us?</span>
-          <h2>Send us a <em>postcard.</em></h2>
+    <dialog class="sheet" id="reviewSheet" aria-labelledby="sheetTitle">
+      <form class="form" data-ajax data-success="Thank you! Your review has been received.">
+        <input type="hidden" name="_subject" value="New review — Europe Made Easy">
+        <input type="hidden" name="_template" value="table">
+        <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <div class="sheet-head">
+          <h3 id="sheetTitle">Write a review</h3>
+          <button class="x" type="button" aria-label="Close"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
         </div>
-        <form data-ajax data-success="Thank you! Your review has been received and will appear once approved.">
-          <input type="hidden" name="_subject" value="New review awaiting approval — Europe Made Easy">
-          <input type="hidden" name="_template" value="table">
-          <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
-          <div class="postcard-form">
-            <div class="msg field">
-              <label for="r-review" class="greeting" style="font-family:var(--display);text-transform:none;letter-spacing:0;font-size:1.6rem;color:var(--ink)">Dear Europe Made Easy,</label>
-              <textarea id="r-review" name="review" required placeholder="Tell us about your trip…"></textarea>
-            </div>
-            <div class="addr">
-              <div class="rating-stamp field">
-                <span class="label" id="rating-label">Your rating</span>
-                <div class="star-input" role="radiogroup" aria-labelledby="rating-label"><input type="radio" id="star5" name="rating" value="5" required><label for="star5" title="5 stars">★</label><input type="radio" id="star4" name="rating" value="4"><label for="star4" title="4 stars">★</label><input type="radio" id="star3" name="rating" value="3"><label for="star3" title="3 stars">★</label><input type="radio" id="star2" name="rating" value="2"><label for="star2" title="2 stars">★</label><input type="radio" id="star1" name="rating" value="1"><label for="star1" title="1 star">★</label></div>
-              </div>
-              <div class="field">
-                <label for="r-name">From</label>
-                <input id="r-name" name="name" required autocomplete="name" placeholder="Your name">
-              </div>
-              <div class="field">
-                <label for="r-trip">Trip (optional)</label>
-                <input id="r-trip" name="trip" placeholder="e.g. Paris, March 2026">
-              </div>
-              <div>
-                <button class="btn btn--terra" type="submit">Send Review <span class="arrow" aria-hidden="true">→</span></button>
-                <div class="form-status" role="status"></div>
-              </div>
-            </div>
-          </div>
-        </form>
-      </div>
-    </section>
+        <label class="field"><span>Your name</span><input name="name" required autocomplete="name"></label>
+        <fieldset class="field">
+          <legend>Your rating</legend>
+          <div class="star-input"><input type="radio" id="star5" name="rating" value="5" required><label for="star5" title="5 stars">★</label><input type="radio" id="star4" name="rating" value="4"><label for="star4" title="4 stars">★</label><input type="radio" id="star3" name="rating" value="3"><label for="star3" title="3 stars">★</label><input type="radio" id="star2" name="rating" value="2"><label for="star2" title="2 stars">★</label><input type="radio" id="star1" name="rating" value="1"><label for="star1" title="1 star">★</label></div>
+        </fieldset>
+        <label class="field"><span>City / trip (optional)</span><input name="trip" placeholder="e.g. Paris, March 2026"></label>
+        <label class="field"><span>Your review</span><textarea name="review" required></textarea></label>
+        <button class="btn btn-gold btn-lg" type="submit">Submit review</button>
+        <p class="form-status" role="status"></p>
+      </form>
+    </dialog>
   </main>
 
-  <footer class="site-footer">
-    <div class="container">
-      <p class="footer-quote">You make the memories. <em>We take care of the details.</em></p>
-      <div class="footer-grid">
-        <ul class="footer-links">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About Us</a></li>
-          <li><a href="cities.html">Cities</a></li>
-          <li><a href="reviews.html">Reviews</a></li>
-          <li><a href="contact.html">Contact Us</a></li>
-        </ul>
-        <div class="footer-contact">
-          <a href="mailto:info@EuropeMadeEasy.org">info@EuropeMadeEasy.org</a>
-          <a href="https://wa.me/32456741479" target="_blank" rel="noopener">WhatsApp +32 456 74 14 79</a>
+  <footer class="foot">
+    <div class="wrap">
+      <div class="foot-grid">
+        <div>
+          <div class="foot-brand">Europe Made Easy</div>
+          <p class="foot-tag">Discover Europe without the hassle. From kosher meals and private transportation to sightseeing and accommodation, we take care of everything so you don't have to.</p>
         </div>
+        <nav aria-label="Footer"><a href="index.html">Home</a><a href="about.html">About Us</a><a href="cities.html">Cities</a><a href="reviews.html">Reviews</a><a href="contact.html">Contact Us</a></nav>
       </div>
-      <div class="footer-bottom"><span>© <span data-year></span> Europe Made Easy</span><span>Rome · Venice · Amsterdam · Paris · London</span></div>
+      <div class="foot-legal">
+        <span>© <span data-year></span> Europe Made Easy</span>
+        <span><a href="mailto:info@EuropeMadeEasy.org">info@EuropeMadeEasy.org</a> · <a href="https://wa.me/32456741479" target="_blank" rel="noopener">WhatsApp +32 456 74 14 79</a></span>
+      </div>
     </div>
   </footer>
 
   <a class="wa-float" href="https://wa.me/32456741479" target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
-  <script src="js/main.js" defer></script>
 </body>
 </html>

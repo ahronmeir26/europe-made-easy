@@ -2,209 +2,155 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Europe Made Easy — Discover Europe Without the Hassle</title>
   <meta name="description" content="Fully arranged, kosher-friendly sightseeing in Rome, Venice, Amsterdam, Paris and London — perfect for stopovers, layovers and short vacations.">
   <meta property="og:title" content="Europe Made Easy — Discover Europe Without the Hassle">
   <meta property="og:description" content="Fully arranged, kosher-friendly sightseeing in Rome, Venice, Amsterdam, Paris and London — perfect for stopovers, layovers and short vacations.">
-  <meta property="og:image" content="images/hero-paris.jpg">
-  <meta name="theme-color" content="#f4ecdf">
+  <meta property="og:image" content="images/venice.jpg">
+  <meta name="theme-color" content="#14233b">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400;1,9..144,600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Gloock&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
-  <script>document.documentElement.classList.add("js")</script>
+  <script src="js/main.js" defer></script>
 </head>
 <body>
-  <header class="site-header">
-    <div class="container nav">
-      <a class="logo" href="index.html" aria-label="Europe Made Easy — home"><span class="logo-mark" aria-hidden="true">E</span><span class="logo-text">Europe <em>Made Easy</em><small>Kosher-friendly city tours</small></span></a>
-      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-menu">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h10"/></svg>
-      </button>
-      <nav class="nav-menu" id="nav-menu" aria-label="Main">
-        <ul class="nav-links">
-          <li><a href="index.html" aria-current="page">Home</a></li>
-          <li><a href="about.html">About Us</a></li>
-          <li><a href="cities.html">Cities</a></li>
-          <li><a href="reviews.html">Reviews</a></li>
-          <li><a href="contact.html">Contact Us</a></li>
-        </ul>
-        <a class="btn btn--terra nav-cta" href="contact.html">Plan Your Trip <span class="arrow" aria-hidden="true">→</span></a>
-      </nav>
-    </div>
+  <header class="bar">
+    <a class="brand" href="index.html" aria-label="Europe Made Easy, home"><svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="18.5" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M9 27c3-5 6-12 11-12s8 7 11 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M14 27h12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="20" cy="10.5" r="2" fill="currentColor"/></svg><span>Europe Made Easy</span></a>
+    <nav class="nav" aria-label="Main">
+      <a href="index.html" aria-current="page">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="cities.html">Cities</a>
+      <a href="reviews.html">Reviews</a>
+      <a href="contact.html">Contact Us</a>
+    </nav>
+    <a class="btn btn-gold bar-cta" href="contact.html">Plan your trip</a>
+    <button class="burger" aria-label="Open menu" aria-expanded="false"><span></span><span></span></button>
   </header>
 
   <main>
-    <section class="hero">
-      <div class="container hero-grid">
-        <div>
-          <span class="kicker">Stopovers · Layovers · Short vacations</span>
-          <h1><span class="line">Europe Made Easy.</span> <em class="line">Discover Europe without the hassle.</em></h1>
-          <p class="lead">Fully arranged, kosher-friendly sightseeing in Europe's most iconic cities — especially for Jewish travelers.</p>
-          <div class="hero-actions">
-            <a class="btn btn--terra" href="contact.html">Plan Your Trip <span class="arrow" aria-hidden="true">→</span></a>
-            <a class="btn btn--line" href="cities.html">See the Cities</a>
-          </div>
-        </div>
-        <figure class="hero-figure">
-          <div class="arch"><img src="images/hero-paris.jpg" alt="Pont Alexandre III in Paris at dusk"></div>
-          <div class="badge" aria-hidden="true">
-            <svg class="ring" viewBox="0 0 120 120"><defs><path id="ring" d="M60,60 m-47,0 a47,47 0 1,1 94,0 a47,47 0 1,1 -94,0"/></defs><text><textPath href="#ring" textLength="292" lengthAdjust="spacing">KOSHER · FULLY ARRANGED · HASSLE-FREE ·</textPath></text></svg>
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" class="plane"><path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5z"/></svg>
-          </div>
-          <figcaption class="mono">Fig. 01 — Pont Alexandre III, Paris</figcaption>
-        </figure>
+    <section class="hero" aria-label="Welcome">
+      <div class="hero-media" aria-hidden="true">
+      <img src="images/rome.jpg" alt="" fetchpriority="high">
+      <img data-src="images/venice.jpg" alt="">
+      <img data-src="images/amsterdam.jpg" alt="">
+      <img data-src="images/paris.jpg" alt="">
+      <img data-src="images/london.jpg" alt="">
       </div>
-    </section>
-
-    <section style="padding:30px 0 20px">
-      <div class="container">
-        <div class="board" data-reveal>
-          <div class="board-head"><span><strong>Departures</strong> — Your next stopover</span><span>Status</span></div>
-          <a class="board-row" href="cities.html#rome">
-            <span class="city-name" data-flap>ROME</span>
-            <span class="code">FCO</span>
-            <span class="hl">Colosseum · Trevi Fountain · Jewish Ghetto</span>
-            <span class="status">Arranged</span>
-          </a>
-          <a class="board-row" href="cities.html#venice">
-            <span class="city-name" data-flap>VENICE</span>
-            <span class="code">VCE</span>
-            <span class="hl">Grand Canal · Gondolas · Jewish Ghetto</span>
-            <span class="status">Arranged</span>
-          </a>
-          <a class="board-row" href="cities.html#amsterdam">
-            <span class="city-name" data-flap>AMSTERDAM</span>
-            <span class="code">AMS</span>
-            <span class="hl">Canal cruises · Anne Frank House · Jewish Quarter</span>
-            <span class="status">Arranged</span>
-          </a>
-          <a class="board-row" href="cities.html#paris">
-            <span class="city-name" data-flap>PARIS</span>
-            <span class="code">CDG</span>
-            <span class="hl">Eiffel Tower · Louvre · Jewish Quarter</span>
-            <span class="status">Arranged</span>
-          </a>
-          <a class="board-row" href="cities.html#london">
-            <span class="city-name" data-flap>LONDON</span>
-            <span class="code">LHR</span>
-            <span class="hl">Big Ben · Tower Bridge · Jewish heritage</span>
-            <span class="status">Arranged</span>
-          </a>
+      <div class="hero-shade" aria-hidden="true"></div>
+      <div class="hero-inner">
+        <p class="kicker">Stopovers, layovers and short vacations — kosher-friendly</p>
+        <h1>Europe Made Easy<span>Discover Europe without the hassle.</span></h1>
+        <p class="hero-lede">Fully arranged sightseeing in Europe's most iconic cities, especially for Jewish travelers. From transportation and kosher meals to tour guides, hotels and attractions — we take care of everything.</p>
+        <div class="hero-actions">
+          <a class="btn btn-gold btn-lg" href="contact.html">Plan your trip</a>
+          <a class="btn btn-glass btn-lg" href="https://wa.me/32456741479" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> WhatsApp us</a>
         </div>
+      </div>
+      <div class="hero-cities" role="tablist" aria-label="Destinations">
+    <button class="hero-tab" role="tab" aria-selected="true">Rome<small>The Eternal City</small></button>
+    <button class="hero-tab" role="tab" aria-selected="false">Venice<small>City on the water</small></button>
+    <button class="hero-tab" role="tab" aria-selected="false">Amsterdam<small>Canals and culture</small></button>
+    <button class="hero-tab" role="tab" aria-selected="false">Paris<small>The City of Light</small></button>
+    <button class="hero-tab" role="tab" aria-selected="false">London<small>Royal landmarks</small></button>
       </div>
     </section>
 
     <section class="section">
-      <div class="container manifesto">
-        <div data-reveal>
-          <span class="kicker">How it works</span>
-          <h2>You enjoy Europe. <em>We handle the rest.</em></h2>
-          <p class="lead">Visiting Europe for a stopover, layover, or short vacation? Europe Made Easy organizes fully arranged sightseeing experiences in Europe's most iconic cities, especially for Jewish travelers looking for a convenient, kosher-friendly experience.</p>
-          <p class="lead">From transportation and kosher meals to tour guides, hotels, and attractions, we take care of everything.</p>
-          <a class="btn btn--line" href="about.html" style="margin-top:12px">What we arrange <span class="arrow" aria-hidden="true">→</span></a>
+      <div class="wrap about-grid">
+        <div class="about-copy">
+          <h2>You enjoy Europe. We handle the rest.</h2>
+          <p class="lead">Visiting Europe for a stopover, layover, or short vacation?</p>
+          <p>Europe Made Easy organizes fully arranged sightseeing experiences in Europe's most iconic cities, especially for Jewish travelers looking for a convenient, kosher-friendly experience.</p>
+          <p>From transportation and kosher meals to tour guides, hotels, and attractions, we take care of everything.</p>
+          <a class="btn btn-line" href="about.html">About us</a>
         </div>
-        <div class="todo">
-          <h3>Your to-do list for Europe</h3>
-          <ul>
-            <li style="transition-delay:300ms"><span class="box"></span><span class="txt">Airport transfer</span></li>
-            <li style="transition-delay:520ms"><span class="box"></span><span class="txt">Private driver</span></li>
-            <li style="transition-delay:740ms"><span class="box"></span><span class="txt">Kosher meals</span></li>
-            <li style="transition-delay:960ms"><span class="box"></span><span class="txt">Tour guide</span></li>
-            <li style="transition-delay:1180ms"><span class="box"></span><span class="txt">Hotel</span></li>
-            <li style="transition-delay:1400ms"><span class="box"></span><span class="txt">Museum tickets</span></li>
-            <li style="transition-delay:1620ms"><span class="box"></span><span class="txt">Canal cruise</span></li>
+        <div class="services-card">
+          <h3>We take care of everything</h3>
+          <ul class="services">
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 16V11l2-5h12l2 5v5M4 16h16M4 16v2.5M20 16v2.5M7.5 13h.01M16.5 13h.01"/></svg>Private transportation and airport transfers</li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="7.5" r="3.5"/><path d="M5 20.5c.7-3.8 3.4-6 7-6s6.3 2.2 7 6"/></svg>Professional and Jewish tour guides</li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3v7a2 2 0 0 0 2 2v9M11 3v7a2 2 0 0 1-2 2M17 21V3c-2.2 1-3.2 4-3.2 8H17"/></svg>Kosher meals and restaurant arrangements</li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 20h18M5 20V8h14v12M9 20v-4h6v4M9 11.5h.01M15 11.5h.01M12 4v4"/></svg>Hotels and accommodation</li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9.5V6h18v3.5a2.5 2.5 0 0 0 0 5V18H3v-3.5a2.5 2.5 0 0 0 0-5ZM14 6v12"/></svg>Museum and attraction tickets</li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 4 3 6.5v13L9 17l6 2.5 6-2.5v-13L15 6.5 9 4ZM9 4v13M15 6.5v13"/></svg>Sightseeing tours and itineraries</li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 18c1.8 1.3 3.7 1.3 5.5 0s3.7-1.3 5.5 0 3.7 1.3 5.5 0M5 15l-1-4h16l-1 4M8 11V7h6l2 4"/></svg>Boat trips, cruises, and special activities</li>
+            <li><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="m8.5 12 2.5 2.5 4.5-5"/></svg>All other travel planning and logistics</li>
           </ul>
-          <p class="done">✓ Done — that's our job.</p>
         </div>
       </div>
     </section>
 
-    <section class="section" style="padding-top:20px">
-      <div class="container">
-        <div class="route-head">
+    <section class="section section-mist">
+      <div class="wrap">
+        <div class="section-head section-head-row">
           <div>
-            <span class="kicker">The route</span>
-            <h2>Five iconic <em>cities.</em></h2>
+            <h2>Discover our destinations</h2>
+            <p>Five of Europe's most iconic cities, fully arranged for you.</p>
           </div>
-          <a class="btn btn--line" href="cities.html">All destinations <span class="arrow" aria-hidden="true">→</span></a>
+          <a class="btn btn-ink" href="cities.html">See all cities</a>
         </div>
-        <div class="postcards">
-          <a class="postcard" href="cities.html#rome" data-reveal style="transition-delay:0ms">
-            <div class="pic"><img src="images/rome.jpg" alt="The Colosseum in Rome at dusk" loading="lazy"></div>
-            <span class="stamp"><b>01</b>FCO</span>
-            <h3>Rome</h3>
-            <p class="mono">Italy</p>
+        <div class="dest-grid">
+          <a class="dest" href="cities.html#rome">
+            <div class="dest-img"><img src="images/rome.jpg" alt="The Colosseum in Rome at dusk" loading="lazy"></div>
+            <div class="dest-body"><small>Italy</small><h3>Rome</h3></div>
           </a>
-          <a class="postcard" href="cities.html#venice" data-reveal style="transition-delay:90ms">
-            <div class="pic"><img src="images/venice.jpg" alt="The Grand Canal in Venice with the Santa Maria della Salute dome" loading="lazy"></div>
-            <span class="stamp"><b>02</b>VCE</span>
-            <h3>Venice</h3>
-            <p class="mono">Italy</p>
+          <a class="dest" href="cities.html#venice">
+            <div class="dest-img"><img src="images/venice.jpg" alt="The Grand Canal in Venice with the Santa Maria della Salute dome" loading="lazy"></div>
+            <div class="dest-body"><small>Italy</small><h3>Venice</h3></div>
           </a>
-          <a class="postcard" href="cities.html#amsterdam" data-reveal style="transition-delay:180ms">
-            <div class="pic"><img src="images/amsterdam.jpg" alt="Tree-lined canal in Amsterdam" loading="lazy"></div>
-            <span class="stamp"><b>03</b>AMS</span>
-            <h3>Amsterdam</h3>
-            <p class="mono">Netherlands</p>
+          <a class="dest" href="cities.html#amsterdam">
+            <div class="dest-img"><img src="images/amsterdam.jpg" alt="Tree-lined canal in Amsterdam" loading="lazy"></div>
+            <div class="dest-body"><small>Netherlands</small><h3>Amsterdam</h3></div>
           </a>
-          <a class="postcard" href="cities.html#paris" data-reveal style="transition-delay:270ms">
-            <div class="pic"><img src="images/paris.jpg" alt="The Eiffel Tower over the Seine at sunset" loading="lazy"></div>
-            <span class="stamp"><b>04</b>CDG</span>
-            <h3>Paris</h3>
-            <p class="mono">France</p>
+          <a class="dest" href="cities.html#paris">
+            <div class="dest-img"><img src="images/paris.jpg" alt="The Eiffel Tower over the Seine at sunset" loading="lazy"></div>
+            <div class="dest-body"><small>France</small><h3>Paris</h3></div>
           </a>
-          <a class="postcard" href="cities.html#london" data-reveal style="transition-delay:360ms">
-            <div class="pic"><img src="images/london.jpg" alt="Big Ben and Westminster Bridge in London" loading="lazy"></div>
-            <span class="stamp"><b>05</b>LHR</span>
-            <h3>London</h3>
-            <p class="mono">United Kingdom</p>
+          <a class="dest" href="cities.html#london">
+            <div class="dest-img"><img src="images/london.jpg" alt="Big Ben and Westminster Bridge in London" loading="lazy"></div>
+            <div class="dest-body"><small>United Kingdom</small><h3>London</h3></div>
           </a>
         </div>
       </div>
     </section>
 
-    <section class="section" style="padding-top:40px">
-      <div class="container">
-        <div class="ticket" data-reveal>
-          <div class="ticket-main">
-            <span class="kicker">Your next stopover</span>
-            <h2>Ready to Explore <em style="color:var(--amber)">Europe?</em></h2>
-            <p>Get in touch and let us take care of your trip.</p>
-          </div>
-          <div class="ticket-stub">
-            <span class="mono">Admit one · Hassle-free class</span>
-            <a class="btn btn--ink" href="contact.html">Plan Your Trip <span class="arrow" aria-hidden="true">→</span></a>
-            <a class="btn btn--whatsapp" href="https://wa.me/32456741479" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> WhatsApp Us</a>
+    <section class="contact">
+      <div class="wrap contact-grid">
+        <div class="contact-copy">
+          <h2>Ready to explore Europe?</h2>
+          <p>Get in touch and let us take care of your trip.</p>
+          <div class="cta-actions">
+            <a class="btn btn-gold btn-lg" href="contact.html">Plan your trip</a>
+            <a class="btn btn-glass btn-lg" href="https://wa.me/32456741479" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> WhatsApp us</a>
           </div>
         </div>
+          <div class="contact-links">
+            <a class="contact-link" href="https://wa.me/32456741479" target="_blank" rel="noopener"><span class="ci ci-wa"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></span><span><small>WhatsApp</small>+32 456 74 14 79</span></a>
+            <a class="contact-link" href="mailto:info@EuropeMadeEasy.org"><span class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg></span><span><small>Email</small>info@EuropeMadeEasy.org</span></a>
+          </div>
       </div>
     </section>
   </main>
 
-  <footer class="site-footer">
-    <div class="container">
-      <p class="footer-quote">You make the memories. <em>We take care of the details.</em></p>
-      <div class="footer-grid">
-        <ul class="footer-links">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About Us</a></li>
-          <li><a href="cities.html">Cities</a></li>
-          <li><a href="reviews.html">Reviews</a></li>
-          <li><a href="contact.html">Contact Us</a></li>
-        </ul>
-        <div class="footer-contact">
-          <a href="mailto:info@EuropeMadeEasy.org">info@EuropeMadeEasy.org</a>
-          <a href="https://wa.me/32456741479" target="_blank" rel="noopener">WhatsApp +32 456 74 14 79</a>
+  <footer class="foot">
+    <div class="wrap">
+      <div class="foot-grid">
+        <div>
+          <div class="foot-brand">Europe Made Easy</div>
+          <p class="foot-tag">Discover Europe without the hassle. From kosher meals and private transportation to sightseeing and accommodation, we take care of everything so you don't have to.</p>
         </div>
+        <nav aria-label="Footer"><a href="index.html">Home</a><a href="about.html">About Us</a><a href="cities.html">Cities</a><a href="reviews.html">Reviews</a><a href="contact.html">Contact Us</a></nav>
       </div>
-      <div class="footer-bottom"><span>© <span data-year></span> Europe Made Easy</span><span>Rome · Venice · Amsterdam · Paris · London</span></div>
+      <div class="foot-legal">
+        <span>© <span data-year></span> Europe Made Easy</span>
+        <span><a href="mailto:info@EuropeMadeEasy.org">info@EuropeMadeEasy.org</a> · <a href="https://wa.me/32456741479" target="_blank" rel="noopener">WhatsApp +32 456 74 14 79</a></span>
+      </div>
     </div>
   </footer>
 
   <a class="wa-float" href="https://wa.me/32456741479" target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
-  <script src="js/main.js" defer></script>
 </body>
 </html>
